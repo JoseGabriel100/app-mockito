@@ -26,7 +26,6 @@ public class StudentDatabaseTest {
         verifyNoMoreInteractions(database);
     }
 
-    @Test
     public ArrayList<Student> createData(){
         ArrayList<Student> students = new ArrayList<>();
         students.add(new Student(1, "Sebastian", 22));
