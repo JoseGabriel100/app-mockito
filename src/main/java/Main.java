@@ -2,35 +2,34 @@ public class Main {
     public static void main(String[] args) {
         StudentDatabase studentDatabase = new StudentDatabase();
 
-        // Add a student
+        // Agregar un estudiante
         Student student1 = new Student(1, "Alice", 30);
         Student student2 = new Student(2, "Joe", 40);
         studentDatabase.addStudent(student1);
         studentDatabase.addStudent(student2);
 
-        // Get all students
-        System.out.println("All students: ");
+        // Obtener todos los estudiantes
+        System.out.println("Todos los estudiantes: ");
         for (Student student : studentDatabase.getAllStudents()) {
             System.out.println(student);
         }
 
-        // Update a student
-        Student updatedStudent = new Student(1, "Alice Updated", 31);
+        // Actualizar un estudiante
+        Student updatedStudent = new Student(1, "Alice Actualizada", 31);
         studentDatabase.updateStudent(updatedStudent);
 
-        // Get a student by ID
+        // Obtener un estudiante por ID
         Student retrievedStudent = studentDatabase.getStudentById(1);
-        System.out.println("Retrieved student by ID:");
+        System.out.println("Estudiante recuperado por ID:");
         System.out.println(retrievedStudent);
 
-        // Delete a student
+        // Eliminar un estudiante
         studentDatabase.deleteStudent(1);
 
-        // Get all students after deletion
-        System.out.println("All students after Deletion:");
+        // Obtener todos los estudiantes después de la eliminación
+        System.out.println("Todos los estudiantes después de la eliminación:");
         for (Student student : studentDatabase.getAllStudents()) {
             System.out.println(student);
         }
     }
 }
-
