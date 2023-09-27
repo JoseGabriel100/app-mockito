@@ -26,6 +26,7 @@ public class StudentDatabaseTest {
         verifyNoMoreInteractions(database);
     }
 
+    @Test
     public ArrayList<Student> createData(){
         ArrayList<Student> students = new ArrayList<>();
         students.add(new Student(1, "Sebastian", 22));
@@ -51,4 +52,38 @@ public class StudentDatabaseTest {
         verifyNoMoreInteractions(database);
     }
 
+    @Test
+    public void testGetStudentById() {
+        ArrayList<Student> data = createData();
+        int idToFind = 2;
+        Student studentToFind = data.get(1); // Student with ID 2
+
+        when(database.getStudentById(idToFind)).thenReturn(studentToFind);
+
+        Student foundStudent = database.getStudentById(idToFind);
+
+        assertEquals(studentToFind, foundStudent);
+
+        verify(database).getStudentById(idToFind);
+        verifyNoMoreInteractions(database);
+    }
+    @Test
+    public void testUpdateStudent() {
+        Student updatedStudent = new Student(2, "Updated Name", 25);
+
+        database.updateStudent(updatedStudent);
+
+        verify(database).updateStudent(updatedStudent);
+        verifyNoMoreInteractions(database);
+    }
+
+    @Test
+    public void testDeleteStudent() {
+        int idToDelete = 3;
+
+        database.deleteStudent(idToDelete);
+
+        verify(database).deleteStudent(idToDelete);
+        verifyNoMoreInteractions(database);
+    }
 }
